@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://HighChem.SAP.WebService/2014/06/" elementFormDefault="qualified" targetNamespace="http://HighChem.SAP.WebService/2014/06/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://187.174.220.84/HighChem.SAP.WebService/sapService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" />
+  <xs:element name="Autenticacion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pidUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pcontrasena" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutenticacionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AutenticacionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Documento">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pidSession" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pfechaInicio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pfechaFin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocumentoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" minOccurs="0" name="DocumentoResult" nillable="true" type="q1:ArrayOfDocumento" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocumentoDetalle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pidSession" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pfechaInicio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pfechaFin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocumentoDetalleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" minOccurs="0" name="DocumentoDetalleResult" nillable="true" type="q2:ArrayOfDocumentoDetalle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Clientes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pidSession" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pfechaInicio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pfechaFin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" minOccurs="0" name="ClientesResult" nillable="true" type="q3:ArrayOfCliente" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Productos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pidSession" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pfechaInicio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pfechaFin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" minOccurs="0" name="ProductosResult" nillable="true" type="q4:ArrayOfProducto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

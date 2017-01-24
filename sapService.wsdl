@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions name="sapService" targetNamespace="http://HighChem.SAP.WebService/2014/06/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://HighChem.SAP.WebService/2014/06/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://HighChem.SAP.WebService/2014/06/">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" />
+      <xs:element name="Autenticacion">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="pidUser" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="pcontrasena" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AutenticacionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="AutenticacionResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Clientes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="pidSession" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="pfechaInicio" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="pfechaFin" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ClientesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ClientesResult" nillable="true" type="q3:ArrayOfCliente" xmlns:q3="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Documento">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="pidSession" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="pfechaInicio" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="pfechaFin" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DocumentoDetalle">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="pidSession" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="pfechaInicio" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="pfechaFin" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DocumentoDetalleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="DocumentoDetalleResult" nillable="true" type="q2:ArrayOfDocumentoDetalle" xmlns:q2="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DocumentoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="DocumentoResult" nillable="true" type="q1:ArrayOfDocumento" xmlns:q1="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Productos">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="pidSession" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="pfechaInicio" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="pfechaFin" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ProductosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ProductosResult" nillable="true" type="q4:ArrayOfProducto" xmlns:q4="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" xmlns:tns="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo">
+      <xs:complexType name="ArrayOfCliente">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Cliente" nillable="true" type="tns:Cliente" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfDocumento">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Documento" nillable="true" type="tns:Documento" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfDocumentoDetalle">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentoDetalle" nillable="true" type="tns:DocumentoDetalle" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfProducto">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Producto" nillable="true" type="tns:Producto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Cliente">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Ciudad" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaActualizado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaCreacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdCliente" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdVendedor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Mercado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Pais" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RazonSoc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Sucursal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Documento">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CondicionPago" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FecaDoc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaActualizado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaCarga" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaCreacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Folio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdCliente" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdVentdedor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ImpuestoDLS" type="xs:double" />
+          <xs:element minOccurs="0" name="ImpuestoMN" type="xs:double" />
+          <xs:element minOccurs="0" name="Mercado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Moneda" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Negocio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Proveedor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubTotalDLS" type="xs:double" />
+          <xs:element minOccurs="0" name="SubTotalMN" type="xs:double" />
+          <xs:element minOccurs="0" name="Sucursal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TipoDocumento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TipodeCambio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalDLS" type="xs:double" />
+          <xs:element minOccurs="0" name="TotalMN" type="xs:double" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DocumentoDetalle">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cantidad" type="xs:double" />
+          <xs:element minOccurs="0" name="FechaActualizado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaCarga" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaCreacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Folio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdVentdedor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ImporteDLS" type="xs:double" />
+          <xs:element minOccurs="0" name="ImporteMN" type="xs:double" />
+          <xs:element minOccurs="0" name="Moneda" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PriceDLS" type="xs:double" />
+          <xs:element minOccurs="0" name="PriceMN" type="xs:double" />
+          <xs:element minOccurs="0" name="Producto" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Renglon" type="xs:int" />
+          <xs:element minOccurs="0" name="TipoDocumento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TipodeCambio" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ManejoError">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Mensaje" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Metodo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Producto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Activo" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Categoria" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Clasificacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClaveSAP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaActualizado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaCreacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdProveedor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Negocio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Unidad" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfCliente" nillable="true" type="tns:ArrayOfCliente" />
+      <xs:element name="ArrayOfDocumento" nillable="true" type="tns:ArrayOfDocumento" />
+      <xs:element name="ArrayOfDocumentoDetalle" nillable="true" type="tns:ArrayOfDocumentoDetalle" />
+      <xs:element name="ArrayOfProducto" nillable="true" type="tns:ArrayOfProducto" />
+      <xs:element name="Cliente" nillable="true" type="tns:Cliente" />
+      <xs:element name="Documento" nillable="true" type="tns:Documento" />
+      <xs:element name="DocumentoDetalle" nillable="true" type="tns:DocumentoDetalle" />
+      <xs:element name="ManejoError" nillable="true" type="tns:ManejoError" />
+      <xs:element name="Producto" nillable="true" type="tns:Producto" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="SapService_Autenticacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Autenticacion" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Autenticacion_ManejoErrorFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:ManejoError" xmlns:q1="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Autenticacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutenticacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Clientes_InputMessage">
+    <wsdl:part name="parameters" element="tns:Clientes" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Clientes_ManejoErrorFault_FaultMessage">
+    <wsdl:part name="detail" element="q4:ManejoError" xmlns:q4="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Clientes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Documento_InputMessage">
+    <wsdl:part name="parameters" element="tns:Documento" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Documento_ManejoErrorFault_FaultMessage">
+    <wsdl:part name="detail" element="q2:ManejoError" xmlns:q2="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Documento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DocumentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SapService_DocumentoDetalle_InputMessage">
+    <wsdl:part name="parameters" element="tns:DocumentoDetalle" />
+  </wsdl:message>
+  <wsdl:message name="SapService_DocumentoDetalle_ManejoErrorFault_FaultMessage">
+    <wsdl:part name="detail" element="q3:ManejoError" xmlns:q3="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" />
+  </wsdl:message>
+  <wsdl:message name="SapService_DocumentoDetalle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DocumentoDetalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Productos_InputMessage">
+    <wsdl:part name="parameters" element="tns:Productos" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Productos_ManejoErrorFault_FaultMessage">
+    <wsdl:part name="detail" element="q5:ManejoError" xmlns:q5="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Productos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProductosResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SapService">
+    <wsdl:operation name="Autenticacion">
+      <wsdl:input wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/Autenticacion" message="tns:SapService_Autenticacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/AutenticacionResponse" message="tns:SapService_Autenticacion_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/AutenticacionManejoErrorFault" name="ManejoErrorFault" message="tns:SapService_Autenticacion_ManejoErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Clientes">
+      <wsdl:input wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/Clientes" message="tns:SapService_Clientes_InputMessage" />
+      <wsdl:output wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/ClientesResponse" message="tns:SapService_Clientes_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/ClientesManejoErrorFault" name="ManejoErrorFault" message="tns:SapService_Clientes_ManejoErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Documento">
+      <wsdl:input wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/Documento" message="tns:SapService_Documento_InputMessage" />
+      <wsdl:output wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/DocumentoResponse" message="tns:SapService_Documento_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/DocumentoManejoErrorFault" name="ManejoErrorFault" message="tns:SapService_Documento_ManejoErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DocumentoDetalle">
+      <wsdl:input wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/DocumentoDetalle" message="tns:SapService_DocumentoDetalle_InputMessage" />
+      <wsdl:output wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/DocumentoDetalleResponse" message="tns:SapService_DocumentoDetalle_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/DocumentoDetalleManejoErrorFault" name="ManejoErrorFault" message="tns:SapService_DocumentoDetalle_ManejoErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Productos">
+      <wsdl:input wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/Productos" message="tns:SapService_Productos_InputMessage" />
+      <wsdl:output wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/ProductosResponse" message="tns:SapService_Productos_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/ProductosManejoErrorFault" name="ManejoErrorFault" message="tns:SapService_Productos_ManejoErrorFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_SapService" type="tns:SapService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Autenticacion">
+      <soap:operation soapAction="http://HighChem.SAP.WebService/2014/06/SapService/Autenticacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ManejoErrorFault">
+        <soap:fault use="literal" name="ManejoErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Clientes">
+      <soap:operation soapAction="http://HighChem.SAP.WebService/2014/06/SapService/Clientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ManejoErrorFault">
+        <soap:fault use="literal" name="ManejoErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Documento">
+      <soap:operation soapAction="http://HighChem.SAP.WebService/2014/06/SapService/Documento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ManejoErrorFault">
+        <soap:fault use="literal" name="ManejoErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentoDetalle">
+      <soap:operation soapAction="http://HighChem.SAP.WebService/2014/06/SapService/DocumentoDetalle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ManejoErrorFault">
+        <soap:fault use="literal" name="ManejoErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Productos">
+      <soap:operation soapAction="http://HighChem.SAP.WebService/2014/06/SapService/Productos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ManejoErrorFault">
+        <soap:fault use="literal" name="ManejoErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="sapService">
+    <wsdl:port name="BasicHttpBinding_SapService" binding="tns:BasicHttpBinding_SapService">
+      <soap:address location="http://187.174.220.84/HighChem.SAP.WebService/sapService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

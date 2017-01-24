@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\inetpub\wwwroot\HighChem.SAP.WebService</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/HighChem.SAP.Data.dll">
+      <publishTime>09/07/2014 21:30:21</publishTime>
+    </File>
+    <File Include="bin/HighChem.SAP.Modelo.dll">
+      <publishTime>09/07/2014 21:30:20</publishTime>
+    </File>
+    <File Include="bin/HighChem.SAP.WebService.dll">
+      <publishTime>09/07/2014 21:30:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll">
+      <publishTime>04/16/2010 14:16:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll">
+      <publishTime>04/16/2010 14:16:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>04/16/2010 14:16:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.dll">
+      <publishTime>04/16/2010 13:42:32</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.Interception.dll">
+      <publishTime>04/16/2010 13:42:32</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>09/07/2014 21:30:32</publishTime>
+    </File>
+    <File Include="sapService.svc">
+      <publishTime>06/05/2014 16:00:32</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/07/2014 21:30:30</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

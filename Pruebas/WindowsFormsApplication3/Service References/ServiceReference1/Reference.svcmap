@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ff245a9b-3094-453a-a780-aa64b107c627" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://187.174.220.84/HighChem.SAP.WebService/sapService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="sapService.xsd" MetadataType="Schema" ID="08222fd7-9286-44d0-9b4d-bdec193251a2" SourceId="1" SourceUrl="http://187.174.220.84/HighChem.SAP.WebService/sapService.svc?xsd=xsd1" />
+    <MetadataFile FileName="sapService.wsdl" MetadataType="Wsdl" ID="e063ff16-67bd-4f7d-bf08-0b08d5a67951" SourceId="1" SourceUrl="http://187.174.220.84/HighChem.SAP.WebService/sapService.svc?wsdl" />
+    <MetadataFile FileName="sapService1.xsd" MetadataType="Schema" ID="edd61db0-fed6-4d23-a5ec-2481c97c619e" SourceId="1" SourceUrl="http://187.174.220.84/HighChem.SAP.WebService/sapService.svc?xsd=xsd0" />
+    <MetadataFile FileName="sapService.disco" MetadataType="Disco" ID="d1b987cf-c9f4-4a64-a2bd-0ed400b4b3ae" SourceId="1" SourceUrl="http://187.174.220.84/HighChem.SAP.WebService/sapService.svc?disco" />
+    <MetadataFile FileName="sapService2.xsd" MetadataType="Schema" ID="a47e419c-8b5c-408e-b9a5-c37228d43846" SourceId="1" SourceUrl="http://187.174.220.84/HighChem.SAP.WebService/sapService.svc?xsd=xsd2" />
+    <MetadataFile FileName="sapService1.wsdl" MetadataType="Wsdl" ID="15bbe456-829d-4bb0-a1b5-7d3b64ceadff" SourceId="1" SourceUrl="http://187.174.220.84/HighChem.SAP.WebService/sapService.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

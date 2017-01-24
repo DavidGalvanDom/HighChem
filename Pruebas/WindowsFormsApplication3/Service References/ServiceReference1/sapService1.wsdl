@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://HighChem.SAP.WebService/2014/06/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://HighChem.SAP.WebService/2014/06/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://HighChem.SAP.WebService/2014/06/Imports">
+      <xsd:import schemaLocation="http://187.174.220.84/HighChem.SAP.WebService/sapService.svc?xsd=xsd0" namespace="http://HighChem.SAP.WebService/2014/06/" />
+      <xsd:import schemaLocation="http://187.174.220.84/HighChem.SAP.WebService/sapService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" />
+      <xsd:import schemaLocation="http://187.174.220.84/HighChem.SAP.WebService/sapService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="SapService_Autenticacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Autenticacion" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Autenticacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutenticacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Autenticacion_ManejoErrorFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" name="detail" element="q1:ManejoError" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Documento_InputMessage">
+    <wsdl:part name="parameters" element="tns:Documento" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Documento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DocumentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Documento_ManejoErrorFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" name="detail" element="q2:ManejoError" />
+  </wsdl:message>
+  <wsdl:message name="SapService_DocumentoDetalle_InputMessage">
+    <wsdl:part name="parameters" element="tns:DocumentoDetalle" />
+  </wsdl:message>
+  <wsdl:message name="SapService_DocumentoDetalle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DocumentoDetalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="SapService_DocumentoDetalle_ManejoErrorFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" name="detail" element="q3:ManejoError" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Clientes_InputMessage">
+    <wsdl:part name="parameters" element="tns:Clientes" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Clientes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Clientes_ManejoErrorFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" name="detail" element="q4:ManejoError" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Productos_InputMessage">
+    <wsdl:part name="parameters" element="tns:Productos" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Productos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProductosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SapService_Productos_ManejoErrorFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/HighChem.SAP.Modelo" name="detail" element="q5:ManejoError" />
+  </wsdl:message>
+  <wsdl:portType name="SapService">
+    <wsdl:operation name="Autenticacion">
+      <wsdl:input wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/Autenticacion" message="tns:SapService_Autenticacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/AutenticacionResponse" message="tns:SapService_Autenticacion_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/AutenticacionManejoErrorFault" name="ManejoErrorFault" message="tns:SapService_Autenticacion_ManejoErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Documento">
+      <wsdl:input wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/Documento" message="tns:SapService_Documento_InputMessage" />
+      <wsdl:output wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/DocumentoResponse" message="tns:SapService_Documento_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/DocumentoManejoErrorFault" name="ManejoErrorFault" message="tns:SapService_Documento_ManejoErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DocumentoDetalle">
+      <wsdl:input wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/DocumentoDetalle" message="tns:SapService_DocumentoDetalle_InputMessage" />
+      <wsdl:output wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/DocumentoDetalleResponse" message="tns:SapService_DocumentoDetalle_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/DocumentoDetalleManejoErrorFault" name="ManejoErrorFault" message="tns:SapService_DocumentoDetalle_ManejoErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Clientes">
+      <wsdl:input wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/Clientes" message="tns:SapService_Clientes_InputMessage" />
+      <wsdl:output wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/ClientesResponse" message="tns:SapService_Clientes_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/ClientesManejoErrorFault" name="ManejoErrorFault" message="tns:SapService_Clientes_ManejoErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Productos">
+      <wsdl:input wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/Productos" message="tns:SapService_Productos_InputMessage" />
+      <wsdl:output wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/ProductosResponse" message="tns:SapService_Productos_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://HighChem.SAP.WebService/2014/06/SapService/ProductosManejoErrorFault" name="ManejoErrorFault" message="tns:SapService_Productos_ManejoErrorFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
